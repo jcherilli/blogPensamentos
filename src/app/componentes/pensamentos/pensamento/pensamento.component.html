@@ -1,0 +1,17 @@
+<!--
+    Diretivas de atributos: altera a aparência ou o comportamento de um elemento, componente ou outra diretiva.
+    Ex: NgClass, NgStyle.
+-->
+<div class="pensamento {{ pensamento.modelo }} ff-roboto-mono" [ngClass]="larguraPensamento()">
+    <img src="../../../../assets/imagens/{{ pensamento.modelo }}.png" alt="Aspas coloridas">
+    <p class="conteudo">{{ pensamento.conteudo }}</p>
+    <p class="autoria">{{ pensamento.autoria }}</p>
+    <div class="acoes">
+        <button class="botao-editar">
+            <img src="../../../../assets/imagens/icone-editar.png" alt="Editar">
+        </button>
+        <button class="botao-excluir">
+            <img src="../../../../assets/imagens/icone-excluir.png" alt="Excluir">
+        </button>
+    </div>
+</div>

@@ -3,5 +3,50 @@
     <h2 class="ff-inter">Meu mural</h2>
     <button routerLink="/criarPensamento" class="botao">Criar Pensamentos</button>
   </header>
+  <div class="mural">
+    <!-- modelo antigo -->
+    <!-- <div class="mural" *ngIf="listaPensamentos.length > 0, else semPensamentos">
+      </div *ngFor="let pensamento of listaPensamentos">
+        <app-pensamento [pensamento]="pensamento" ></app-pensamento>
+      <div>
+    </div> -->
+    <!-- modelo atual -->
+     <div>
+      <!--
+        Diretivas de componentes: usado com um modelo. Esse tipo de diretiva é a mais comum. 
+        Ex: <app-pensamento2>.
+      -->
+      <app-pensamento2></app-pensamento2>
+    </div>
+
+    <div>
+      <!--
+        Diretivas estruturais: altera o layout do DOM adicionando e removendo elementos DOM. 
+        Ex: NgIf, NgFor. NgSwitch, @for, @if, @switch
+      -->
+      @for (pensamento of listaPensamentos; track pensamento) {
+        <app-pensamento [pensamento]="pensamento" ></app-pensamento>
+      } @empty {
+        <li>No items available</li>
+      }
+    </div>
+
+    <div>
+      @if (listaPensamentos.length > 0) {
+        <div>
+          <p>Quantidade pensamentos: {{ listaPensamentos.length }}</p>
+        </div>
+      } @else {
+        <div>
+          <p>Quantidade pensamentos: 0</p>
+        </div>
+      }
+    </div>
+  </div>
 </section>
+<!-- <ng-template #semPensamentos>
+    <div class="ff-inter sem-pensamentos">
+        <p>Ainda não há pensamentos cadastrados!</p>
+  </div>
+</ng-template> -->
 
