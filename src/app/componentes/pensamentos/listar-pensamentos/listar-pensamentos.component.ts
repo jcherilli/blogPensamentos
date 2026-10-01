@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { PensamentoComponent } from "../pensamento/pensamento.component";
 import { Pensamento2Component } from "../pensamento2/pensamento2.component";
 import { Pensamento } from '../pensamento';
+import { PensamentoService } from '../pensamento.service';
 
 @Component({
   selector: 'app-listar-pensamentos',
@@ -29,5 +30,15 @@ export class ListarPensamentosComponent {
       modelo: "modelo2"
     }
   ];
+
+  constructor(private service: PensamentoService) {
+
+  }
+
+  ngOnInit(): void {
+    this.service.listar().subscribe((listaPensamentos) => {
+      this.listaPensamentos = listaPensamentos
+    })
+  }
 
 }

@@ -3,6 +3,7 @@
     <h2 class="ff-inter">Meu mural</h2>
     <button routerLink="/criarPensamento" class="botao">Criar Pensamentos</button>
   </header>
+
   <div class="mural">
     <!-- modelo antigo -->
     <!-- <div class="mural" *ngIf="listaPensamentos.length > 0, else semPensamentos">
@@ -10,6 +11,7 @@
         <app-pensamento [pensamento]="pensamento" ></app-pensamento>
       <div>
     </div> -->
+
     <!-- modelo atual -->
      <div>
       <!--
@@ -17,18 +19,6 @@
         Ex: <app-pensamento2>.
       -->
       <app-pensamento2></app-pensamento2>
-    </div>
-
-    <div>
-      <!--
-        Diretivas estruturais: altera o layout do DOM adicionando e removendo elementos DOM. 
-        Ex: NgIf, NgFor. NgSwitch, @for, @if, @switch
-      -->
-      @for (pensamento of listaPensamentos; track pensamento) {
-        <app-pensamento [pensamento]="pensamento" ></app-pensamento>
-      } @empty {
-        <li>No items available</li>
-      }
     </div>
 
     <div>
@@ -42,6 +32,19 @@
         </div>
       }
     </div>
+  </div>
+
+  <div class="mural">
+    <!-- modelo atual -->
+      <!--
+        Diretivas estruturais: altera o layout do DOM adicionando e removendo elementos DOM. 
+        Ex: NgIf, NgFor. NgSwitch, @for, @if, @switch
+      -->
+      @for (pensamento of listaPensamentos; track pensamento) {
+        <app-pensamento [pensamento]="pensamento" ></app-pensamento>
+      } @empty {
+        <li>No items available</li>
+      }
   </div>
 </section>
 <!-- <ng-template #semPensamentos>
